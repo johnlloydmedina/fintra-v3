@@ -1,0 +1,30 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @borrowers.each do |borrower| %>
+          <tr>
+              <td><%= link_to borrower.name, borrower_path(borrower) %></td>
+              <td><%= borrower.email %></td>
+              <td><%= borrower.address %></td>
+              <td><%= borrower.status ? "Active" : "Inactive" %></td>
+              <td>
+                <%= link_to "Edit",
+                            edit_borrower_path(borrower),
+                            class: "btn btn-secondary" %>
+                <%= button_to "Delete",
+                            borrower_path(borrower),
+                            method: :delete,
+                            class: "btn btn-danger" %>
+              </td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>

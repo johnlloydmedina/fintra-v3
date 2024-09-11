@@ -1,0 +1,10 @@
+<main class="container">
+  <div class="header">
+    <h1>Borrowers</h1>
+    <%= link_to "New borrower",
+                new_borrower_path,
+                class: "btn btn-primary" %>
+  </div>
+
+  <%= render partial: "borrowers", borrowers: @borrowers %>
+</main>
